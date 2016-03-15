@@ -8,11 +8,19 @@ namespace Day2_Homework
 {
     public class PotterShoppingCart
     {
-        public double GetPrice()
+        
+        public double GetPrice(List<Book> Books)
         {
 
-            return 100;
+            return 100*Books.Count;
         }
 
     }
+    public class Book
+    {
+        public int Version { get; set; }
+        public int Num { get; set; }
+        public int UnitPrice { get; set; }
+    }
+   
 }

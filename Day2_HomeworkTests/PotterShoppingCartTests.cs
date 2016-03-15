@@ -52,7 +52,7 @@ namespace Day2_Homework.Tests
 
             //act
             var expected =100;
-            var actual=target.GetPrice();
+            var actual=target.GetPrice(1);
                 //assert
             Assert.AreEqual(expected, actual);
         }
@@ -65,6 +65,7 @@ namespace Day2_Homework.Tests
         //    And 第五集買了 0 本
         //    When 結帳
         //    Then 價格應為 190 元
+
 
         //Scenario: 一二三集各買了一本，價格應為100*3*0.9=270
         //    Given 第一集買了 1 本
