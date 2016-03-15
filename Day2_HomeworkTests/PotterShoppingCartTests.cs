@@ -10,6 +10,7 @@ namespace Day2_Homework.Tests
     [TestClass()]
     public class PotterShoppingCartTests
     {
+        List<Book> list = new List<Book>();
         //        User Story
         //哈利波特一到五冊熱潮正席捲全球，世界各地的孩子都為之瘋狂。
         //出版社為了慶祝TDD課程招生順利，決定訂出極大的優惠，來回饋給為了小孩四處奔波買書的父母親們。
@@ -52,7 +53,8 @@ namespace Day2_Homework.Tests
 
             //act
             var expected =100;
-            var actual=target.GetPrice(1);
+            list.Add(new Book() { Version = 1, Num = 1, UnitPrice = 100 });
+            var actual = target.GetPrice(list);
                 //assert
             Assert.AreEqual(expected, actual);
         }
@@ -65,7 +67,17 @@ namespace Day2_Homework.Tests
         //    And 第五集買了 0 本
         //    When 結帳
         //    Then 價格應為 190 元
+        public void GetPriceTest_Fst_1__Sec_1_price_must_be_190()
+        {
+            //arrange
+            var target = new PotterShoppingCart();
 
+            //act
+            var expected = 100;
+            var actual = target.GetPrice(1);
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
 
         //Scenario: 一二三集各買了一本，價格應為100*3*0.9=270
         //    Given 第一集買了 1 本
