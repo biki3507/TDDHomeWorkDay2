@@ -161,6 +161,21 @@ namespace Day2_Homework.Tests
         //    And 第五集買了 0 本
         //    When 結帳
         //    Then 價格應為 370 元
+        [TestMethod()]
+        public void GetPriceTest_Fst_1_Sec_1_Thi_2_price_must_be_370()
+        {
+            //arrange
+            var target = new PotterShoppingCart();
+            //act
+            var expected = 370;
+            list.Add(new Book() { Version = 1, Num = 1, UnitPrice = 100 });
+            list.Add(new Book() { Version = 2, Num = 1, UnitPrice = 100 });
+            list.Add(new Book() { Version = 3, Num = 1, UnitPrice = 100 });
+            list.Add(new Book() { Version = 3, Num = 1, UnitPrice = 100 });
+            var actual = target.GetPrice(list);
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
 
         //Scenario: 第一集買了一本，第二三集各買了兩本，價格應為100*3*0.9 + 100*2*0.95 = 460
         //    Given 第一集買了 1 本
@@ -170,6 +185,22 @@ namespace Day2_Homework.Tests
         //    And 第五集買了 0 本
         //    When 結帳
         //    Then 價格應為 460 元
+        [TestMethod()]
+        public void GetPriceTest_Fst_1_Sec_2_Thi_2_price_must_be_460()
+        {
+            //arrange
+            var target = new PotterShoppingCart();
+            //act
+            var expected = 370;
+            list.Add(new Book() { Version = 1, Num = 1, UnitPrice = 100 });
+            list.Add(new Book() { Version = 2, Num = 1, UnitPrice = 100 });
+            list.Add(new Book() { Version = 2, Num = 1, UnitPrice = 100 });
+            list.Add(new Book() { Version = 3, Num = 1, UnitPrice = 100 });
+            list.Add(new Book() { Version = 3, Num = 1, UnitPrice = 100 });
+            var actual = target.GetPrice(list);
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
 
     }
 }
