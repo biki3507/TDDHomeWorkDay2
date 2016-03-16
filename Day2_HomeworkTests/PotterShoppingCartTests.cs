@@ -79,7 +79,19 @@ namespace Day2_Homework.Tests
             //assert
             Assert.AreEqual(expected, actual);
         }
-
+        [TestMethod()]
+        public void GetPriceTest_Fst_1__Fst_1_price_must_be_200()
+        {
+            //arrange
+            var target = new PotterShoppingCart();
+            //act
+            var expected = 200;
+            list.Add(new Book() { Version = 1, Num = 1, UnitPrice = 100 });
+            list.Add(new Book() { Version = 1, Num = 1, UnitPrice = 100 });
+            var actual = target.GetPrice(list);
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
         //Scenario: 一二三集各買了一本，價格應為100*3*0.9=270
         //    Given 第一集買了 1 本
         //    And 第二集買了 1 本
