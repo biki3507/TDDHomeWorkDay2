@@ -77,7 +77,7 @@ namespace Day2_Homework.Tests
             //act
             var expected = 190;
             list.Add(new Book() { Version = 1, Num = 1, UnitPrice = 100 });
-            list.Add(new Book() { Version = 1, Num = 1, UnitPrice = 100 });
+            list.Add(new Book() { Version = 2, Num = 1, UnitPrice = 100 });
             var actual = target.GetPrice(list);
             //assert
             Assert.AreEqual(expected, actual);
