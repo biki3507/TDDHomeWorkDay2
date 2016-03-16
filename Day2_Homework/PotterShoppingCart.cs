@@ -8,42 +8,50 @@ namespace Day2_Homework
 {
     public class PotterShoppingCart
     {
-        
+        List<Book> books = new List<Book>();
         public double GetPrice(List<Book> Books)
         {
             double totalPrice = 0;
+            this.books = Books;
+            totalPrice += GetDiscount(totalPrice);
 
-            if (Books.Count(x => x.Version == 1) > 0 && Books.Count(y => y.Version == 2) > 0 && Books.Count(y => y.Version == 3) > 0 && Books.Count(y => y.Version == 4) > 0&& Books.Count(y => y.Version == 5) > 0)
+
+            totalPrice += Books.Count * 100;
+            return totalPrice;
+        }
+
+        private  double GetDiscount(double totalPrice)
+        {
+            if (this.books.Count(x => x.Version == 1) > 0 && this.books.Count(y => y.Version == 2) > 0 && this.books.Count(y => y.Version == 3) > 0 && this.books.Count(y => y.Version == 4) > 0 && this.books.Count(y => y.Version == 5) > 0)
             {
-                Books.Remove(Books.FirstOrDefault(x => x.Version == 1));
-                Books.Remove(Books.FirstOrDefault(x => x.Version == 2));
-                Books.Remove(Books.FirstOrDefault(x => x.Version == 3));
-                Books.Remove(Books.FirstOrDefault(x => x.Version == 4));
-                Books.Remove(Books.FirstOrDefault(x => x.Version == 5));
+                this.books.Remove(this.books.FirstOrDefault(x => x.Version == 1));
+                this.books.Remove(this.books.FirstOrDefault(x => x.Version == 2));
+                this.books.Remove(this.books.FirstOrDefault(x => x.Version == 3));
+                this.books.Remove(this.books.FirstOrDefault(x => x.Version == 4));
+                this.books.Remove(this.books.FirstOrDefault(x => x.Version == 5));
                 totalPrice += 5 * (100 * 0.75);
             }
-            if (Books.Count(x => x.Version == 1) > 0 && Books.Count(y => y.Version == 2) > 0 && Books.Count(y => y.Version == 3) > 0 && Books.Count(y => y.Version == 4) > 0)
+            if (this.books.Count(x => x.Version == 1) > 0 && this.books.Count(y => y.Version == 2) > 0 && this.books.Count(y => y.Version == 3) > 0 && this.books.Count(y => y.Version == 4) > 0)
             {
-                Books.Remove(Books.FirstOrDefault(x => x.Version == 1));
-                Books.Remove(Books.FirstOrDefault(x => x.Version == 2));
-                Books.Remove(Books.FirstOrDefault(x => x.Version == 3));
-                Books.Remove(Books.FirstOrDefault(x => x.Version == 4));
+                this.books.Remove(this.books.FirstOrDefault(x => x.Version == 1));
+                this.books.Remove(this.books.FirstOrDefault(x => x.Version == 2));
+                this.books.Remove(this.books.FirstOrDefault(x => x.Version == 3));
+                this.books.Remove(this.books.FirstOrDefault(x => x.Version == 4));
                 totalPrice += 4 * (100 * 0.8);
             }
-            else if (Books.Count(x => x.Version == 1) > 0 && Books.Count(y => y.Version == 2) > 0&&Books.Count(y => y.Version == 3) > 0)
+            if (this.books.Count(x => x.Version == 1) > 0 && this.books.Count(y => y.Version == 2) > 0 && this.books.Count(y => y.Version == 3) > 0)
             {
-                Books.Remove(Books.FirstOrDefault(x => x.Version == 1));
-                Books.Remove(Books.FirstOrDefault(x => x.Version == 2));
-                Books.Remove(Books.FirstOrDefault(x => x.Version == 3));
+                this.books.Remove(this.books.FirstOrDefault(x => x.Version == 1));
+                this.books.Remove(this.books.FirstOrDefault(x => x.Version == 2));
+                this.books.Remove(this.books.FirstOrDefault(x => x.Version == 3));
                 totalPrice += 3 * (100 * 0.90);
             }
-             else if (Books.Count(x => x.Version == 1) > 0 && Books.Count(y => y.Version == 2) > 0)
+            if (this.books.Count(x => x.Version == 1) > 0 && this.books.Count(y => y.Version == 2) > 0)
             {
-                Books.Remove(Books.FirstOrDefault(x => x.Version == 1));
-                Books.Remove(Books.FirstOrDefault(x => x.Version == 2));
-                totalPrice += 2 * (100*0.95);
+                this.books.Remove(this.books.FirstOrDefault(x => x.Version == 1));
+                this.books.Remove(this.books.FirstOrDefault(x => x.Version == 2));
+                totalPrice += 2 * (100 * 0.95);
             }
-            totalPrice += Books.Count * 100;
             return totalPrice;
         }
 

@@ -191,7 +191,7 @@ namespace Day2_Homework.Tests
             //arrange
             var target = new PotterShoppingCart();
             //act
-            var expected = 370;
+            var expected = 460;
             list.Add(new Book() { Version = 1, Num = 1, UnitPrice = 100 });
             list.Add(new Book() { Version = 2, Num = 1, UnitPrice = 100 });
             list.Add(new Book() { Version = 2, Num = 1, UnitPrice = 100 });
