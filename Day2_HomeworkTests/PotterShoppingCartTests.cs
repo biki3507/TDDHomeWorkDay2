@@ -91,6 +91,23 @@ namespace Day2_Homework.Tests
         //    And 第五集買了 0 本
         //    When 結帳
         //    Then 價格應為 270 元
+        [TestMethod()]
+
+        public void GetPriceTest_Fst_1_Sec_1_Thi_1_price_must_be_270()
+        {
+            //arrange
+            var target = new PotterShoppingCart();
+
+            //act
+            var expected = 270;
+            list.Add(new Book() { Version = 1, Num = 1, UnitPrice = 100 });
+            list.Add(new Book() { Version = 2, Num = 1, UnitPrice = 100 });
+            list.Add(new Book() { Version = 3, Num = 1, UnitPrice = 100 });
+
+            var actual = target.GetPrice(list);
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
 
         //Scenario: 一二三四集各買了一本，價格應為100*4*0.8=320
         //    Given 第一集買了 1 本
