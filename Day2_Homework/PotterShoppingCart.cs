@@ -12,8 +12,18 @@ namespace Day2_Homework
         public double GetPrice(List<Book> Books)
         {
             double totalPrice = 0;
-            
-             if (Books.Count(x => x.Version == 1) > 0 && Books.Count(y => y.Version == 2) > 0&&Books.Count(y => y.Version == 3) > 0)
+
+            if (Books.Count(x => x.Version == 1) > 0 && Books.Count(y => y.Version == 2) > 0 && Books.Count(y => y.Version == 3) > 0 && Books.Count(y => y.Version == 4) > 0)
+            {
+                Books.Remove(Books.FirstOrDefault(x => x.Version == 1));
+                Books.Remove(Books.FirstOrDefault(x => x.Version == 2));
+                Books.Remove(Books.FirstOrDefault(x => x.Version == 3));
+                Books.Remove(Books.FirstOrDefault(x => x.Version == 4));
+
+
+                totalPrice += 3 * (100 * 0.90);
+            }
+            else if (Books.Count(x => x.Version == 1) > 0 && Books.Count(y => y.Version == 2) > 0&&Books.Count(y => y.Version == 3) > 0)
             {
                 Books.Remove(Books.FirstOrDefault(x => x.Version == 1));
                 Books.Remove(Books.FirstOrDefault(x => x.Version == 2));
